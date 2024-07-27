@@ -8,19 +8,19 @@
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="~/plugins/fontawesome-free/css/all.min.css">
     <!-- DataTables -->
-    <link rel="stylesheet" href="../../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
-    <link rel="stylesheet" href="../../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
-    <link rel="stylesheet" href="../../plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+    <link rel="stylesheet" href="~/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="~/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" href="~/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
     <!-- Datepicker -->
     @*<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" />
-*@
+    *@
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <!-- Theme style -->
-    <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="~/dist/css/adminlte.min.css">
     <!-- SweetAlert2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- Datatable -->
@@ -36,50 +36,50 @@
 
     <script>
 
-        function displayAlert(){
+        function displayAlert() {
             Swal.fire({
-              title: 'Are you sure want to delete?',
-              text: "You won't be able to revert this!",
-              icon: 'warning',
-              showCancelButton: true,
-              confirmButtonColor: '#3085d6',
-              cancelButtonColor: '#d33',
-              confirmButtonText: 'Yes, delete it!'
+                title: 'Are you sure want to delete?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
             }).then((result) => {
-              if (result.isConfirmed) {
-                Swal.fire(
-                  'Deleted!',
-                  'Your file has been deleted.',
-                  'success'
-                )
-              }
+                if (result.isConfirmed) {
+                    Swal.fire(
+                        'Deleted!',
+                        'Your file has been deleted.',
+                        'success'
+                    )
+                }
             })
         }
 
         function SuccessMessageBox(text) {
             Swal.fire({
-              position: 'top-end',
-              icon: 'success',
-              title: text,
-              showConfirmButton: false,
-              timer: 1500
+                position: 'top-end',
+                icon: 'success',
+                title: text,
+                showConfirmButton: false,
+                timer: 1500
             })
         }
 
         function ErrorMessageBox(text) {
             Swal.fire({
-                  icon: 'error',
-                  title: 'Oops...',
-                  text: text,
-                });
+                icon: 'error',
+                title: 'Oops...',
+                text: text,
+            });
         }
 
         function WarningMessageBox(text) {
             Swal.fire({
-                  icon: 'warning',
-                  title: 'Oops...',
-                  text: text,
-                });
+                icon: 'warning',
+                title: 'Oops...',
+                text: text,
+            });
         }
 
         function InfoMessageBox(text) {
@@ -91,7 +91,7 @@
                 allowEscapeKey: false
             });
         }
-      
+
         function SuccessMessageBoxWithLink(text, link) {
             Swal.fire({
                 position: 'top-center',
@@ -181,7 +181,7 @@
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
             <a href="#" class="brand-link">
-                <img src="../../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+                <img src="~/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
                 <span class="brand-text font-weight-light">Personal Information</span>
             </a>
 
@@ -190,7 +190,7 @@
                 <!-- Sidebar user (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="../../dist/img/Desert.jpg" class="img-circle elevation-2" alt="User Image">
+                        <img src="~/dist/img/Desert.jpg" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
                         <a href="#" class="d-block">Su Thet</a>
@@ -232,58 +232,58 @@
                                 </p>
                             </a>
                         </li>
-                         <li class="nav-item">
+                        <li class="nav-item">
                             <a asp-area="" asp-controller="Person" asp-action="Create" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>မိသားစုဝင်များ</p>
                             </a>
                         </li>
 
-                         <li class="nav-item">
+                        <li class="nav-item">
                             <a asp-area="" asp-controller="Person" asp-action="Create" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>ပညာအရည်အချင်း</p>
                             </a>
                         </li>
-                         <li class="nav-item">
+                        <li class="nav-item">
                             <a asp-area="" asp-controller="Person" asp-action="Create" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>တက်ရောက်ခဲ့သောသင်တန်းများ</p>
                             </a>
                         </li>
 
-                         <li class="nav-item">
+                        <li class="nav-item">
                             <a asp-area="" asp-controller="Person" asp-action="Create" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>ရာထူး</p>
                             </a>
                         </li>
 
-                         <li class="nav-item">
+                        <li class="nav-item">
                             <a asp-area="" asp-controller="Person" asp-action="Create" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>ဆုတံဆိပ်/ဘွဲ့များ</p>
                             </a>
                         </li>
-                         <li class="nav-item">
+                        <li class="nav-item">
                             <a asp-area="" asp-controller="Person" asp-action="Create" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>ဆေးကုသမှုမှတ်တမ်း</p>
                             </a>
                         </li>
-                         <li class="nav-item">
+                        <li class="nav-item">
                             <a asp-area="" asp-controller="Person" asp-action="Create" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>နိုင်ငံခြားခရီးစဉ်</p>
                             </a>
                         </li>
-                         <li class="nav-item">
+                        <li class="nav-item">
                             <a asp-area="" asp-controller="Person" asp-action="Create" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>တတ်ကျွမ်းသည့် ဘာသာစကားများ</p>
                             </a>
                         </li>
-                        <li class="nav-header">Reports</li>                        
+                        <li class="nav-header">Reports</li>
                         <li class="nav-item">
                             <a asp-area="" asp-controller="Person" asp-action="Index" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
@@ -320,13 +320,13 @@
                         <h3 class="card-title"><b>Add Person </b></h3>
 
                         @*<div class="card-tools">
-                              <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                                <i class="fas fa-minus"></i>
-                              </button>
-                              <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-                                <i class="fas fa-times"></i>
-                              </button>
-                            </div>*@
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                        <i class="fas fa-minus"></i>
+                        </button>
+                        <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
+                        <i class="fas fa-times"></i>
+                        </button>
+                        </div>*@
                     </div>
 
                     <div class="card-body">
@@ -352,7 +352,7 @@
             <div class="float-right d-none d-sm-block">
                 <b>Version</b> 1.0.0
             </div>
-            <strong>Copyright &copy; 2014-2023 <a href="https://adminlte.io">Trust Link</a>.</strong> All rights reserved.
+            <strong>Copyright &copy; 2014-2023 <a href="https://adminlte.io">AspDotNetCoreMVC</a>.</strong> All rights reserved.
         </footer>
 
         <!-- Control Sidebar -->
@@ -363,34 +363,34 @@
     </div>
     <!-- ./wrapper -->
     <!-- jQuery -->
-    <script src="../../plugins/jquery/jquery.min.js"></script>
+    <script src="~/plugins/jquery/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <!-- Bootstrap 4 -->
-    <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- DataTables  & Plugins -->
-    <script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
-    <script src="../../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-    <script src="../../plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-    <script src="../../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
-    <script src="../../plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
-    <script src="../../plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
-    <script src="../../plugins/jszip/jszip.min.js"></script>
-    <script src="../../plugins/pdfmake/pdfmake.min.js"></script>
-    <script src="../../plugins/pdfmake/vfs_fonts.js"></script>
-    <script src="../../plugins/datatables-buttons/js/buttons.html5.min.js"></script>
-    <script src="../../plugins/datatables-buttons/js/buttons.print.min.js"></script>
-    <script src="../../plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+    <script src="~/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="~/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="~/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+    <script src="~/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="~/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+    <script src="~/plugins/jszip/jszip.min.js"></script>
+    <script src="~/plugins/pdfmake/pdfmake.min.js"></script>
+    <script src="~/plugins/pdfmake/vfs_fonts.js"></script>
+    <script src="~/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+    <script src="~/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+    <script src="~/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <!-- AdminLTE App -->
-    <script src="../../dist/js/adminlte.min.js"></script>
+    <script src="~/dist/js/adminlte.min.js"></script>
     <!-- Datatable -->
     <script src="https://cdn.datatables.net/v/dt/dt-1.13.4/datatables.min.js"></script>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css">
     <script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
-    
+
     <!-- AdminLTE for demo purposes -->
-    @*<script src="../../dist/js/demo.js"></script>*@
+    @*<script src="~/dist/js/demo.js"></script>*@
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>

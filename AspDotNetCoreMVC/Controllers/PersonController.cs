@@ -150,7 +150,7 @@ namespace AspDotNetCoreMVC.Controllers
             }
         }
 
-         [HttpPost]
+        [HttpPost]
         //[ValidateAntiForgeryToken]
         public JsonResult Edit(int id, PersonModel personModel)
         {

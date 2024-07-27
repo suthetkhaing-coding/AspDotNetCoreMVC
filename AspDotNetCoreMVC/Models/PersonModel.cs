@@ -11,7 +11,7 @@ namespace AspDotNetCoreMVC.Models
         public int PersonId { get; set; }
         [Required]
         [DisplayName("Person Number")]
-        public string PersonNo { get; set; }        
+        public string PersonNo { get; set; }
         [Required]
         [DisplayName("အမည်")]
         public string PersonName { get; set; }
@@ -78,7 +78,7 @@ namespace AspDotNetCoreMVC.Models
         public string? Heir_Person { get; set; }
         [DisplayName("အလုပ်ဝင်ရက်စွဲ")]
         public DateTime? EmployDate { get; set; }
-        
+
         [DisplayName("စတင်ဝင်ရောက်သည့်ဒေသ")]
         public string? duty_start { get; set; }
         [DisplayName("အာမခံ")]
