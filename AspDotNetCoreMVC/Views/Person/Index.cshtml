@@ -1,0 +1,216 @@
+﻿@model IEnumerable<PersonModel>
+
+@{
+    Layout = "_adminLteLayout";
+    ViewData["Title"] = "Index";
+}
+
+@*<h1>Person List</h1>*@
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table id="personTable" class="table">
+    <thead>
+        <tr>
+            <th style="display: none;">
+                @Html.DisplayNameFor(model => model.PersonNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PersonName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MaritalStatus)
+            </th>
+            <th style="display: none;">
+                @Html.DisplayNameFor(model => model.Race)
+            </th>
+            <th style="display: none;">
+                @Html.DisplayNameFor(model => model.Religion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NrcNo)
+            </th>
+            <th style="display: none;">
+                @Html.DisplayNameFor(model => model.Photo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DOB)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.POB)
+            </th>
+            <th style="display: none;">
+                @Html.DisplayNameFor(model => model.Height_ft)
+            </th>
+            <th style="display: none;">
+                @Html.DisplayNameFor(model => model.Height_in)
+            </th>
+            <th style="display: none;">
+                @Html.DisplayNameFor(model => model.BloodType)
+            </th>
+            <th style="display: none;">
+                @Html.DisplayNameFor(model => model.DistinguishMark)
+            </th>
+            <th style="display: none;">
+                @Html.DisplayNameFor(model => model.JoinDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FatherName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MotherName)
+            </th>
+            <th style="display: none;">
+                @Html.DisplayNameFor(model => model.PrevOccupation)
+            </th>
+            <th style="display: none;">
+                @Html.DisplayNameFor(model => model.OtherQualification)
+            </th>
+            <th style="display: none;">
+                @Html.DisplayNameFor(model => model.PerAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TownshipCode)
+            </th>
+            <th style="display: none;">
+                @Html.DisplayNameFor(model => model.IsDeleted)
+            </th>
+            <th style="display: none;">
+                @Html.DisplayNameFor(model => model.CreatedDate)
+            </th>
+            <th style="display: none;">
+                @Html.DisplayNameFor(model => model.UpdatedDate)
+            </th>
+            <th style="display: none;">
+                @Html.DisplayNameFor(model => model.Heir_Person)
+            </th>
+            <th style="display: none;">
+                @Html.DisplayNameFor(model => model.EmployDate)
+            </th>
+            <th style="display: none;">
+                @Html.DisplayNameFor(model => model.duty_start)
+            </th>
+            <th style="display: none;">
+                @Html.DisplayNameFor(model => model.insurance)
+            </th>
+            <th style="display: none;">
+                @Html.DisplayNameFor(model => model.policyno)
+            </th>
+            <th style="display: none;"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td style="display: none;">
+                    @Html.DisplayFor(modelItem => item.PersonNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PersonName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Gender)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MaritalStatus)
+                </td>
+                <td style="display: none;">
+                    @Html.DisplayFor(modelItem => item.Race)
+                </td>
+                <td style="display: none;">
+                    @Html.DisplayFor(modelItem => item.Religion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NrcNo)
+                </td>
+                <td style="display: none;">
+                    @Html.DisplayFor(modelItem => item.Photo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DOB)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.POB)
+                </td>
+                <td style="display: none;">
+                    @Html.DisplayFor(modelItem => item.Height_ft)
+                </td>
+                <td style="display: none;">
+                    @Html.DisplayFor(modelItem => item.Height_in)
+                </td>
+                <td style="display: none;">
+                    @Html.DisplayFor(modelItem => item.BloodType)
+                </td>
+                <td style="display: none;">
+                    @Html.DisplayFor(modelItem => item.DistinguishMark)
+                </td>
+                <td style="display: none;">
+                    @Html.DisplayFor(modelItem => item.JoinDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FatherName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MotherName)
+                </td>
+                <td style="display: none;">
+                    @Html.DisplayFor(modelItem => item.PrevOccupation)
+                </td>
+                <td style="display: none;">
+                    @Html.DisplayFor(modelItem => item.OtherQualification)
+                </td>
+                <td style="display: none;">
+                    @Html.DisplayFor(modelItem => item.PerAddress)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TownshipCode)
+                </td>
+                <td style="display: none;">
+                    @Html.DisplayFor(modelItem => item.IsDeleted)
+                </td>
+                <td style="display: none;">
+                    @Html.DisplayFor(modelItem => item.CreatedDate)
+                </td>
+                <td style="display: none;">
+                    @Html.DisplayFor(modelItem => item.UpdatedDate)
+                </td>
+                <td style="display: none;">
+                    @Html.DisplayFor(modelItem => item.Heir_Person)
+                </td>
+                <td style="display: none;">
+                    @Html.DisplayFor(modelItem => item.EmployDate)
+                </td>
+                <td style="display: none;">
+                    @Html.DisplayFor(modelItem => item.duty_start)
+                </td>
+                <td style="display: none;">
+                    @Html.DisplayFor(modelItem => item.insurance)
+                </td>
+                <td style="display: none;">
+                    @Html.DisplayFor(modelItem => item.policyno)
+                </td>
+                <td>
+                    <a class="btn btn-sm btn-warning" asp-action="Edit" asp-route-id="@item.PersonId">Edit</a> |
+                    <a class="btn btn-sm btn-info" asp-action="Details" asp-route-id="@item.PersonId">Details</a> |
+                    <a class="btn btn-sm btn-danger" asp-action="Delete" asp-route-id="@item.PersonId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@section Scripts {
+    <script>
+        jQuery.noConflict();
+        (function ($) {
+            $(document).ready(function () {
+                $('#personTable').DataTable();
+            });
+        })(jQuery);
+    </script>
+
+}

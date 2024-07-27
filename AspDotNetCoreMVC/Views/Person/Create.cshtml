@@ -1,0 +1,703 @@
+﻿@model PersonModel
+
+@{
+    Layout = "_adminLteLayout";
+    ViewData["Title"] = "Create";
+    List<string> bloodTypes = ViewBag.BloodTypes;
+    List<string> religiousOptions = ViewBag.ReligiousOptions;
+}
+<head>
+    <link rel="stylesheet" href="~/css/styles1.css" />
+</head>
+<h5><b>ကိုယ်ရေးအချက်အလက်ထည့်သွင်းခြင်း</b></h5>
+<hr />
+<form asp-action="Create" asp-controller="Person" enctype="multipart/form-data">
+    <div class="row">
+        <div class="col-md-12">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <label asp-for="PersonName" class="col-sm-4 col-control-label required">အမည်</label>
+                        <div class="col-sm-8">
+                            <input asp-for="PersonName" class="form-control" />
+                            <span asp-validation-for="PersonName" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <label asp-for="NrcNo" class="col-sm-4 control-label required">မှတ်ပုံတင်အမှတ်</label>
+                        <div class="col-sm-8">
+                            <input asp-for="NrcNo" class="form-control" />
+                            <span asp-validation-for="NrcNo" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <!-- radio -->
+                    <div class="form-group row">
+                        <label asp-for="Gender" class="col-sm-4 col-control-label required"></label>
+                        <div class="col-sm-8">
+                            <div class="form-check form-check-inline">
+                                <input asp-for="Gender" class="form-check-input" type="radio" value="ကျား" name="radioGender">
+                                <label class="form-check-label">ကျား</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input asp-for="Gender" class="form-check-input" type="radio" value="မ" name="radioGender">
+                                <label class="form-check-label">မ</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <label asp-for="MaritalStatus" class="col-sm-4 col-control-label required">အိမ်ထောင်ရေး</label>
+                        <div class="col-sm-8">
+                            <div class="form-check form-check-inline">
+                                <input type="radio" asp-for="MaritalStatus" class="form-check-input" value="ရှိ" id="maritalStatusMarried" /><label class="form-check-label" for="maritalStatusMarried">ရှိ</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input type="radio" asp-for="MaritalStatus" class="form-check-input" value="မရှိ" id="maritalStatusSingle" /><label class="form-check-label" for="maritalStatusSingle">မရှိ</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <label asp-for="DOB" class="col-sm-4 control-label required">မွေးသက္ကရာဇ်</label>
+                        <div class="col-sm-8">
+                            <div class="input-group">
+                                <input id="DOB" class="form-control" placeholder="Select Date" />
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text datepicker-icon">
+                                        <i class="fa fa-calendar"></i>
+                                    </span>
+                                </div>
+                            </div>
+                            <span asp-validation-for="DOB" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <label asp-for="POB" class="col-sm-4 control-label required">မွေးဖွားသည့်ဇာတိ</label>
+                        <div class="col-sm-8">
+                            <input asp-for="POB" class="form-control" />
+                            <span asp-validation-for="POB" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <label asp-for="Race" class="col-sm-4 control-label required">လူမျိုး</label>
+                        <div class="col-sm-8">
+                            <input asp-for="Race" class="form-control" />
+                            <span asp-validation-for="Race" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <label asp-for="Religion" class="col-sm-4 control-label required">ကိုးကွယ်သည့်ဘာသာ</label>
+                        <div class="col-sm-8">
+                            <select id="Religion" class="select2 form-control" style="width: 100%;">
+                                <option value="" disabled selected>တစ်ခုရွေးပါ</option>
+                                @foreach (var option in religiousOptions)
+                                {
+                                    <option value="@option">@option</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <label asp-for="FatherName" class="col-sm-4 control-label required">အဖအမည်</label>
+                        <div class="col-sm-8">
+                            <input asp-for="FatherName" class="form-control" />
+                            <span asp-validation-for="FatherName" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <label asp-for="MotherName" class="col-sm-4 control-label required">အမိအမည်</label>
+                        <div class="col-sm-8">
+                            <input asp-for="MotherName" class="form-control" />
+                            <span asp-validation-for="MotherName" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <label asp-for="BloodType" class="col-sm-4 control-label">သွေးအမျိုးအစား</label>
+                        <div class="col-sm-8">
+                            <select id="BloodType" class="select2 form-control" style="width: 100%;">
+                                <option value="" disabled selected>တစ်ခုရွေးပါ</option>
+                                @foreach (var bloodType in bloodTypes)
+                                {
+                                    <option value="@bloodType">@bloodType</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <label asp-for="Heir_Person" class="col-sm-4 class="control-label">အမွေစားအမွေခံအမည်</label>
+                        <div class="col-sm-8">
+                            <input asp-for="Heir_Person" class="form-control" />
+                            <span asp-validation-for="Heir_Person" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <label asp-for="Height_ft" class="col-sm-4 control-label required">အရပ်အမြင့် ပေ</label>
+                        <div class="col-sm-8">
+                            <input asp-for="Height_ft" class="form-control" />
+                            <span asp-validation-for="Height_ft" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <label asp-for="Height_in" class="col-sm-4 control-label required">အရပ်အမြင့် လက်မ</label>
+                        <div class="col-sm-8">
+                            <input asp-for="Height_in" class="form-control" />
+                            <span asp-validation-for="Height_in" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <label asp-for="policyno" class="col-sm-4 class="control-label">Policy Number</label>
+                        <div class="col-sm-8">
+                            <input asp-for="policyno" class="form-control" />
+                            <span asp-validation-for="policyno" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <label asp-for="insurance" class="col-sm-4 class="control-label">အာမခံ</label>
+                        <div class="col-sm-8">
+                            <input asp-for="insurance" class="form-control" />
+                            <span asp-validation-for="insurance" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <label asp-for="DistinguishMark" class="col-sm-4 class="control-label">ထင်ရှားသည့်အမှတ်အသား</label>
+                        <div class="col-sm-8">
+                            <input asp-for="DistinguishMark" class="form-control" />
+                            <span asp-validation-for="DistinguishMark" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <label asp-for="Photo" class="col-sm-4 control-label">ပုံထည့်ရန်</label>
+                        <div class="col-sm-8">
+                            <div class="custom-file">
+                                <input asp-for="Photo" type="file" class="custom-file-input" id="Photo" name="Photo">
+                                <label class="custom-file-label" for="Photo">Choose file</label>
+                            </div>
+                            <span asp-validation-for="Photo" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <label asp-for="TownshipCode" class="col-sm-4 control-label required">မြို့နယ်</label>
+                        <div class="col-sm-8">
+                            <input asp-for="TownshipCode" class="form-control" />
+                            <span asp-validation-for="TownshipCode" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <label asp-for="PerAddress" class="col-sm-4 control-label required">အမြဲတမ်းနေရပ်လိပ်စာ</label>
+                        <div class="col-sm-8">
+                            <textarea asp-for="PerAddress" class="form-control" rows="1"></textarea>
+                            <span asp-validation-for="PerAddress" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <label asp-for="duty_start" class="col-sm-4 class="control-label">စတင်ဝင်ရောက်သည့်ဒေသ</label>
+                        <div class="col-sm-8">
+                            <input asp-for="duty_start" class="form-control" />
+                            <span asp-validation-for="duty_start" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <label asp-for="EmployDate" class="col-sm-4 control-label">အလုပ်ဝင်ရက်စွဲ</label>
+                        <div class="col-sm-8">
+                            <div class="input-group">
+                                <input id="EmployDate" class="form-control" placeholder="Select Date" />
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text datepicker-icon">
+                                        <i class="fa fa-calendar"></i>
+                                    </span>
+                                </div>
+                            </div>
+                            <span asp-validation-for="EmployDate" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <label asp-for="JoinDate" class="col-sm-4 control-label">အလုပ်ရောက်ရက်စွဲ</label>
+                        <div class="col-sm-8">
+                            <div class="input-group">
+                                <input id="JoinDate" class="form-control" placeholder="Select Date" />
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text datepicker-icon">
+                                        <i class="fa fa-calendar"></i>
+                                    </span>
+                                </div>
+                            </div>
+                            <span asp-validation-for="JoinDate" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <label asp-for="PrevOccupation" class="col-sm-4 class="control-label">ယခင်အလုပ်အကိုင်</label>
+                        <div class="col-sm-8">
+                            <input asp-for="PrevOccupation" class="form-control" />
+                            <span asp-validation-for="PrevOccupation" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <label asp-for="OtherQualification" class="col-sm-4 class="control-label">အခြားအတတ်ပညာ</label>
+                        <div class="col-sm-8">
+                            <input asp-for="OtherQualification" class="form-control" />
+                            <span asp-validation-for="OtherQualification" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <div class="col-sm-4">
+                        </div>
+                        <div class="col-sm-8">
+                            <input id="btnCreate" type="button" value="Save" class="btn btn-primary" />
+                            @*onclick="savePerson()"*@
+                            <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @*<div class="form-group">
+            <label asp-for="UserId" class="control-label"></label>
+            <input asp-for="UserId" class="form-control" />
+            <span asp-validation-for="UserId" class="text-danger"></span>
+            </div>*@
+        </div>
+    </div>
+</form>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script>
+
+        $(document).ready(function () {
+            $(".datepicker-icon").click(function () {
+                $(this).closest(".input-group").find("input").focus();
+            });
+            $("#DOB, #EmployDate, #JoinDate").datepicker({
+                dateFormat: "dd/mm/yy" // Customize the date format if needed
+            });
+        });
+        $('.custom-file-input').on('change', function () {
+            var fileName = $(this).val().split('\\').pop();
+            $(this).next('.custom-file-label').addClass("selected").html(fileName);
+        });
+
+        var numpattern = /^\d+$/;
+        var pattern = /^[\u1000-\u109F\uAA60-\uAA7F\u1000-\u104F\uAC00-\uD7AFa-zA-Z\s]*$/;
+
+        $("#PersonName").on("change", function () {
+            var nameInput = $(this).val().trim();
+
+            if ($.trim(nameInput).length == 0) {
+                alert('Person Name is required');
+                setTimeout(function () {
+                    $("#PersonName").focus();
+                }, 10);
+                return;
+            } else if (!pattern.test(nameInput)) {
+                alert('Name should only contain Myanmar or English letters');
+                setTimeout(function () {
+                    $("#PersonName").focus();
+                }, 10);
+                return;
+            }
+        });
+
+        $("#Race").on("change", function () {
+            var nameInput = $(this).val().trim();
+
+            if ($.trim(nameInput).length == 0) {
+                alert('Race is required');
+                setTimeout(function () {
+                    $("#Race").focus();
+                }, 10);
+                return;
+            } else if (!pattern.test(nameInput)) {
+                alert('Race should only contain Myanmar or English letters');
+                setTimeout(function () {
+                    $("#Race").focus();
+                }, 10);
+                return;
+            }
+        });
+
+        $("#FatherName").on("change", function () {
+            var nameInput = $(this).val().trim();
+
+            if ($.trim(nameInput).length == 0) {
+                alert('Father Name is required');
+                setTimeout(function () {
+                    $("#FatherName").focus(); // Set focus to Father Name textbox
+                }, 10);
+                return;
+            } else if (!pattern.test(nameInput)) {
+                alert('Name should only contain Myanmar or English letters');
+                setTimeout(function () {
+                    $("#FatherName").focus(); // Set focus to Father Name textbox
+                }, 10);
+                return;
+            }
+        });
+
+        $("#MotherName").on("change", function () {
+            var nameInput = $(this).val().trim();
+
+            if ($.trim(nameInput).length == 0) {
+                alert('Mother Name is required');
+                setTimeout(function () {
+                    $("#MotherName").focus(); // Set focus to Mother Name textbox
+                }, 10);
+                return;
+            } else if (!pattern.test(nameInput)) {
+                alert('Name should only contain Myanmar or English letters');
+                setTimeout(function () {
+                    $("#MotherName").focus(); // Set focus to Mother Name textbox
+                }, 10);
+                return;
+            }
+        });
+
+        $("#Heir_Person").on("change", function () {
+            var nameInput = $(this).val().trim();
+
+            if ($.trim(nameInput).length == 0) {
+                return;
+            } else if (!pattern.test(nameInput)) {
+                alert('Name should only contain Myanmar or English letters');
+                setTimeout(function () {
+                    $("#Heir_Person").focus(); // Set focus to Heir_Person textbox
+                }, 10);
+                return;
+            }
+        });
+
+        $("#duty_start").on("change", function () {
+            var nameInput = $(this).val().trim();
+
+            if ($.trim(nameInput).length == 0) {
+                return;
+            } else if (!pattern.test(nameInput)) {
+                alert('Address should only contain Myanmar or English letters');
+                setTimeout(function () {
+                    $("#duty_start").focus(); // Set focus to duty_start textbox
+                }, 10);
+                return;
+            }
+        });
+
+        $("#TownshipCode").on("change", function () {
+            var nameInput = $(this).val().trim();
+
+            if ($.trim(nameInput).length == 0) {
+                alert('Township is required');
+                setTimeout(function () {
+                    $("#TownshipCode").focus(); // Set focus to TownshipCode textbox
+                }, 10);
+                return;
+            } else if (!pattern.test(nameInput)) {
+                alert('Township should only contain Myanmar or English letters');
+                setTimeout(function () {
+                    $("#TownshipCode").focus(); // Set focus to TownshipCode textbox
+                }, 10);
+                return;
+            }
+        });
+
+        $("#PerAddress").on("change", function () {
+            var nameInput = $(this).val().trim();
+
+            if ($.trim(nameInput).length == 0) {
+                alert('Address is required');
+                setTimeout(function () {
+                    $("#PerAddress").focus(); // Set focus to PerAddress textbox
+                }, 10);
+                return;
+            } else if (!pattern.test(nameInput)) {
+                alert('Address should only contain Myanmar or English letters');
+                setTimeout(function () {
+                    $("#PerAddress").focus(); // Set focus to PerAddress textbox
+                }, 10);
+                return;
+            }
+        });
+
+        $("#DistinguishMark").on("change", function () {
+            var nameInput = $(this).val().trim();
+
+            if ($.trim(nameInput).length == 0) {
+                return;
+            } else if (!pattern.test(nameInput)) {
+                alert('DistinguishMark should only contain Myanmar or English letters');
+                setTimeout(function () {
+                    $("#DistinguishMark").focus(); // Set focus to DistinguishMark textbox
+                }, 10);
+                return;
+            }
+        });
+
+        $("#PrevOccupation").on("change", function () {
+            var nameInput = $(this).val().trim();
+
+            if ($.trim(nameInput).length == 0) {
+                return;
+            } else if (!pattern.test(nameInput)) {
+                alert('PrevOccupation should only contain Myanmar or English letters');
+                setTimeout(function () {
+                    $("#PrevOccupation").focus(); // Set focus to PrevOccupation textbox
+                }, 10);
+                return;
+            }
+        });
+
+        $("#OtherQualification").on("change", function () {
+            var nameInput = $(this).val().trim();
+
+            if ($.trim(nameInput).length == 0) {
+                return;
+            } else if (!pattern.test(nameInput)) {
+                alert('OtherQualification should only contain Myanmar or English letters');
+                setTimeout(function () {
+                    $("#OtherQualification").focus(); // Set focus to OtherQualification textbox
+                }, 10);
+                return;
+            }
+        });
+
+        $("#Height_ft").on("change", function () {
+            var nameInput = $(this).val().trim();
+
+            if ($.trim(nameInput).length == 0) {
+                return;
+            } else if (!numpattern.test(nameInput)) {
+                alert('Height_ft should only contain numbers');
+                setTimeout(function () {
+                    $("#Height_ft").focus(); // Set focus to insurance textbox
+                }, 10);
+                return;
+            }
+        });
+
+        $("#Height_in").on("change", function () {
+            var nameInput = $(this).val().trim();
+
+            if ($.trim(nameInput).length == 0) {
+                return;
+            } else if (!numpattern.test(nameInput)) {
+                alert('Height_in should only contain numbers');
+                setTimeout(function () {
+                    $("#Height_in").focus(); // Set focus to insurance textbox
+                }, 10);
+                return;
+            }
+        });
+
+        $("#policyno").on("change", function () {
+            var nameInput = $(this).val().trim();
+
+            if ($.trim(nameInput).length == 0) {
+                return;
+            } else if (!numpattern.test(nameInput)) {
+                alert('policyno should only contain numbers');
+                setTimeout(function () {
+                    $("#policyno").focus(); // Set focus to policyno textbox
+                }, 10);
+                return;
+            }
+        });
+
+        $("#insurance").on("change", function () {
+            var nameInput = $(this).val().trim();
+
+            if ($.trim(nameInput).length == 0) {
+                return;
+            } else if (!numpattern.test(nameInput)) {
+                alert('insurance should only contain numbers');
+                setTimeout(function () {
+                    $("#insurance").focus(); // Set focus to insurance textbox
+                }, 10);
+                return;
+            }
+        });
+
+
+        $('#btnCreate').click(function () {
+
+            //var pattern = /^[\u1000-\u109F\uAA60-\uAA7F\u1000-\u104F\uAC00-\uD7AFa-zA-Z\s]*$/;
+            //var numpattern = /^\d+$/;
+
+            //if ($.trim($("#PersonName").val()).length == 0) {
+            //    alert('Person Name is required');
+            //    return;
+            //}
+            //else {
+            //    //var myanmarPattern = /^[က-အ\s]*$/;
+            //    //var letterPattern = /^[a-zA-Z\s]*$/;
+            //    var nameInput = $("#PersonName").val().trim();
+
+            //    if (!pattern.test(nameInput)) {
+            //        alert('Name should only contain Myanmar or English letters');
+            //        return;
+            //    }
+            //}
+            //if ($.trim($("#Name").val()).length == 0) {
+            //    alert('Customer Name is required');
+            //    return;
+            //}
+            //if ($('#Password').val() != $('#ComfirmPassword').val()) {
+            //    alert('Need to Same Password');
+            //    return;
+            //}
+
+            //var formData = new FormData();
+            //formData.append("Photo", $('#photoInput')[0].files[0]);
+
+
+            var formData = new FormData();
+            formData.append("PersonNo", "1");
+            formData.append("DocNo", $('#DocNo').val());
+            formData.append("PrevDocNo", $('#PrevDocNo').val());
+            formData.append("PersonName", $('#PersonName').val());
+            formData.append("Gender", $('input[name="radioGender"]:checked').val());
+            formData.append("MaritalStatus", $('input[name="MaritalStatus"]:checked').val());
+            formData.append("Race", $('#Race').val());
+            formData.append("Religion", $('#Religion').val());
+            formData.append("NrcNo", $('#NrcNo').val());
+            var photoFile = $('#Photo')[0].files[0];
+            console.log(photoFile);
+            if (photoFile && photoFile.size > 0) {
+                formData.append("Photo1", photoFile);
+            } else {
+                formData.append("Photo1", "");
+            }
+            formData.append("DOB", $('#DOB').val());
+            formData.append("POB", $('#POB').val());
+            formData.append("Height_ft", $('#Height_ft').val());
+            formData.append("Height_in", $('#Height_in').val());
+            formData.append("BloodType", $('#BloodType').val());
+            formData.append("DistinguishMark", $('#DistinguishMark').val());
+            formData.append("JoinDate", $('#JoinDate').val());
+            formData.append("FatherName", $('#FatherName').val());
+            formData.append("MotherName", $('#MotherName').val());
+            formData.append("PrevOccupation", $('#PrevOccupation').val());
+            formData.append("OtherQualification", $('#OtherQualification').val());
+            formData.append("PerAddress", $('#PerAddress').val());
+            formData.append("TownshipCode", $('#TownshipCode').val());
+            formData.append("Heir_Person", $('#Heir_Person').val());
+            formData.append("EmployDate", $('#EmployDate').val());
+            formData.append("IsTransferFromMilitary", $('#IsTransferFromMilitary').prop('checked'));
+            formData.append("duty_start", $('#duty_start').val());
+            formData.append("insurance", $('#insurance').val());
+            formData.append("policyno", $('#policyno').val());
+
+            console.log(formData);
+
+            $.ajax({
+                url: "/Person/Create",
+                //dataType: "JSON",
+                type: "POST",
+                //contentType: "application/json",
+                //data: JSON.stringify({ reqModel: _reqModel }), { reqModel: _reqModel }
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function (data) {
+                    console.log(data);
+                    if (data.respCode == "000") {
+                        SuccessMessageBoxWithLink('Person Create is Successful', '/Person/Create');
+                    } else if (data.respCode == "999") {
+                        ErrorMessageBox('Person Create is Fail');
+                    }
+                },
+                error: function (xhr, status, error) {
+                    console.log(xhr.responseText); // Log the detailed error message for debugging
+                }
+            });
+        });
+
+    </script>
+
+}
